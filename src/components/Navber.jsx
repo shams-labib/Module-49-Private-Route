@@ -1,7 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
+import "./Navbar.css"
 
 const Navber = () => {
+
+
+  const links = <>
+      <li><NavLink to={'/'}>Home</NavLink></li>
+      <li><NavLink to={'/register'}>Register</NavLink></li>
+      <li><NavLink to={'/login'}>LogIn</NavLink></li>
+  </>
+
     return (
         <div className="navbar bg-base-100 shadow-sm">
   <div className="navbar-start">
@@ -12,23 +21,18 @@ const Navber = () => {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
+        {
+          links
+        }
       </ul>
     </div>
     <a className="btn btn-ghost text-xl">daisyUI</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><Link to={'/'}>Home</Link></li>
-      <li><Link to={'/about'}>About</Link></li>
+      {
+        links
+      }
     </ul>
   </div>
   <div className="navbar-end">
